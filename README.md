@@ -1,5 +1,7 @@
 # multiserver API
 A multiserver RPC API for Minetest Servers
+## multiserver project
+This project is intended for use in combination with [multiserver](https://github.com/HimbeerserverDE/multiserver).
 ## Usage
 Install this mod on your minetest servers and enable mod channels on
 each server. You can now use the API in your own mods.
