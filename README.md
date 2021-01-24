@@ -5,12 +5,6 @@ This project is intended for use in combination with [multiserver](https://githu
 ## Usage
 Install this mod on your minetest servers and enable mod channels on
 each server. You can now use the API in your own mods.
-**None of the methods will work if no players are connected to the
-minetest server. A fix is planned.**
-## Planned features
-* Fix dependence on connected player
-* Add register_on_* methods
-* Low priority: Stop using callback functions if a response is expected
 ## Methods
 > `multiserver.alert(msg)`
 ```
@@ -63,4 +57,21 @@ callback: Callback function (params: address)
 Description: Gets the address of a player (format: IP_ADDRESS:PORT) and
 passes it to the callback function; This is needed because minetest
 servers only see the address of the proxy
+```
+> `multiserver.register_on_joinplayer(callback)`
+```
+callback: Callback function (params: name)
+Description: Registers a callback for global join events
+```
+> `multiserver.register_on_leaveplayer(callback)`
+```
+callback: Callback function (params: name)
+Description: Registers a callback for global leave events
+```
+> `multiserver.register_on_redirect_done(callback)`
+```
+callback: Callback function (params: name, newsrv, success)
+Description: Registers a callback function for global redirect events;
+newsrv is the server the client was being redirected to, success
+indicates whether the redirection was successful
 ```

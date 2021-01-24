@@ -1,3 +1,7 @@
+multiserver.on_joinplayer = {}
+multiserver.on_leaveplayer = {}
+multiserver.on_redirect_done = {}
+
 multiserver.alert = function(msg)
 	multiserver.do_rpc("<-ALERT " .. msg, nil)
 end
@@ -28,4 +32,16 @@ end
 
 multiserver.get_address = function(name, cb)
 	multiserver.do_rpc("<-GETADDR " .. name, cb)
+end
+
+multiserver.register_on_joinplayer = function(cb)
+	table.insert(multiserver.on_joinplayer, cb)
+end
+
+multiserver.register_on_leaveplayer = function(cb)
+	table.insert(multiserver.on_leaveplayer, cb)
+end
+
+multiserver.register_on_redirect_done = function(cb)
+	table.insert(multiserver.on_redirect_done, cb)
 end

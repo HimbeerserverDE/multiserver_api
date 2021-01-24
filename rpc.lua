@@ -11,7 +11,6 @@ end
 
 minetest.register_on_modchannel_message(function(channel_name, sender, msg)
 	local rrq = multiserver.fromhex(msg:split(" ")[1])
-	if cb[rrq] == nil then return end
 	local cmd = msg:split(" ")[2]
 	local p
 	if cmd == "->DEFSRV" then
@@ -26,7 +25,25 @@ minetest.register_on_modchannel_message(function(channel_name, sender, msg)
 		p = msg:split(" ")[3]
 	elseif cmd == "->ADDR" then
 		p = msg:split(" ")[3]
+	elseif cmd == "->JOIN" then
+		local name = msg:split(" ")[3]
+		for _, f in ipairs(multiserver.on_joinplayer) do
+			f(name)
+		end
+	elseif cmd == "->LEAVE" then
+		local name = msg:split(" ")[3]
+		for _, f in ipairs(multiserver.on_leaveplayer) do
+			f(name)
+		end
+	elseif cmd == "->REDIRECTED" then
+		local name = msg:split(" ")[3]
+		local newsrv = msg:split(" ")[4]
+		local success = multiserver.tobool(msg:split(" ")[5])
+		for _, f in ipairs(multiserver.on_redirect_done) do
+			f(name, newsrv, success)
+		end
 	end
+	if cb[rrq] == nil then return end
 	cb[rrq](p)
 	cb[rrq] = nil
 end)
