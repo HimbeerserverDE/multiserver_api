@@ -58,6 +58,11 @@ Description: Gets the address of a player (format: IP_ADDRESS:PORT) and
 passes it to the callback function; This is needed because minetest
 servers only see the address of the proxy
 ```
+> `multiserver.send_msg = function(msg)`
+```
+msg: Message to send
+Description: Sends a message to all other minetest servers
+```
 > `multiserver.register_on_joinplayer(callback)`
 ```
 callback: Callback function (params: name)
@@ -74,4 +79,10 @@ callback: Callback function (params: name, newsrv, success)
 Description: Registers a callback function for global redirect events;
 newsrv is the server the client was being redirected to, success
 indicates whether the redirection was successful
+```
+> `multiserver.register_on_msg(callback)`
+```
+callback: Callback function (params: msg)
+Description: Registers a callback function for messages sent by other
+minetest servers
 ```
