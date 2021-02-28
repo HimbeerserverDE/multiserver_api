@@ -27,6 +27,8 @@ minetest.register_on_modchannel_message(function(channel_name, sender, msg)
 		p = msg:split(" ")[3]
 	elseif cmd == "->ADDR" then
 		p = msg:split(" ")[3]
+	elseif cmd == "->ISBANNED" then
+		p = multiserver.tobool(msg:split(" ")[3])
 	elseif cmd == "->JOIN" then
 		local name = msg:split(" ")[3]
 		for _, f in ipairs(multiserver.on_joinplayer) do

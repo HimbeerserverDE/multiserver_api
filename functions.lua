@@ -43,6 +43,18 @@ multiserver.get_address = function(name, cb)
 	multiserver.do_rpc("<-GETADDR " .. name, cb)
 end
 
+multiserver.is_banned = function(name, cb)
+	multiserver.do_rpc("<-ISBANNED " .. name, cb)
+end
+
+multiserver.ban = function(target)
+	multiserver.do_rpc("<-BAN " .. target, nil)
+end
+
+multiserver.unban = function(target)
+	multiserver.do_rpc("<-UNBAN " .. target, nil)
+end
+
 multiserver.send_msg = function(msg)
 	multiserver.do_rpc("<-MT2MT " .. msg, nil)
 end

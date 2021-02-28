@@ -70,6 +70,22 @@ Description: Gets the address of a player (format: IP_ADDRESS:PORT) and
 passes it to the callback function; This is needed because minetest
 servers only see the address of the proxy
 ```
+> `multiserver.is_banned(target, callback)`
+```
+target: IP address to perform check on
+callback: Callback function (params: is_banned)
+Description: Reports to the callback function if a player is banned
+```
+> `multiserver.ban(target)`
+```
+target: Name or IP address to ban
+Description: Bans a player, can only use name if the player is online
+```
+> `multiserver.unban(target)`
+```
+target: Name or IP address to unban
+Description: Unbans a player
+```
 > `multiserver.send_msg = function(msg)`
 ```
 msg: Message to send
