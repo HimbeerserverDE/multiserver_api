@@ -23,6 +23,14 @@ multiserver.check_privs = function(name, privs, cb)
 	multiserver.do_rpc("<-CHECKPRIVS " .. name .. " " .. minetest.privs_to_string(privs):gsub(",", "|"), cb)
 end
 
+multiserver.get_privs = function(name, cb)
+	multiserver.do_rpc("<-GETPRIVS " .. name, cb)
+end
+
+multiserver.set_privs = function(name, privs)
+	multiserver.do_rpc("<-SETPRIVS " .. name .. " " .. minetest.privs_to_string(privs):gsub(",", "|"), nil)
+end
+
 multiserver.get_server_name = function(name, cb)
 	multiserver.do_rpc("<-GETSRV " .. name, cb)
 end

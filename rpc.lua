@@ -21,6 +21,8 @@ minetest.register_on_modchannel_message(function(channel_name, sender, msg)
 		p = multiserver.tobool(msg:split(" ")[3])
 	elseif cmd == "->HASPRIVS" then
 		p = multiserver.tobool(msg:split(" ")[3])
+	elseif cmd == "->PRIVS" then
+		p = minetest.string_to_privs(msg:split(" ")[3] or "")
 	elseif cmd == "->SRV" then
 		p = msg:split(" ")[3]
 	elseif cmd == "->ADDR" then

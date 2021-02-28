@@ -37,6 +37,18 @@ callback: Callback function (params: has_privs)
 Description: Reports to the callback function if a player has the
 specified privileges
 ```
+> `multiserver.get_privs(name, callback)`
+```
+name: Player name to use for check
+callback: Callback function (params: privs)
+Description: Gets the proxy-level privileges of a player and passes it
+to the callback function
+```
+> `multiserver.set_privs(name, privs)`
+```
+name: Player name to set privileges for
+Description: Sets the proxy-level privileges of a player
+```
 > `multiserver.get_server_name(name, callback)`
 ```
 name: Player name to perform lookup on
