@@ -10,6 +10,8 @@ multiserver.do_rpc = function(msg, cbf)
 end
 
 minetest.register_on_modchannel_message(function(channel_name, sender, msg)
+	if channel_name ~= "multiserver" then return end
+
 	local rrq = multiserver.fromhex(msg:split(" ")[1])
 	local cmd = msg:split(" ")[2]
 	local p
