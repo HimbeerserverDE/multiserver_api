@@ -93,7 +93,7 @@ Description: Sends a message to all other minetest servers
 ```
 > `multiserver.register_on_joinplayer(callback)`
 ```
-callback: Callback function (params: name)
+callback: Callback function (params: name, srv)
 Description: Registers a callback for global join events
 ```
 > `multiserver.register_on_leaveplayer(callback)`

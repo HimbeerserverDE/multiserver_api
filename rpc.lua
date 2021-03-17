@@ -33,8 +33,9 @@ minetest.register_on_modchannel_message(function(channel_name, sender, msg)
 		p = multiserver.tobool(msg:split(" ")[3])
 	elseif cmd == "->JOIN" then
 		local name = msg:split(" ")[3]
+		local srv = msg:split(" ")[4]
 		for _, f in ipairs(multiserver.on_joinplayer) do
-			f(name)
+			f(name, srv)
 		end
 	elseif cmd == "->LEAVE" then
 		local name = msg:split(" ")[3]
