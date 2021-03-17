@@ -55,6 +55,10 @@ multiserver.unban = function(target)
 	multiserver.do_rpc("<-UNBAN " .. target, nil)
 end
 
+multiserver.get_servers = function(cb)
+	multiserver.do_rpc("<-GETSRVS", cb)
+end
+
 multiserver.send_msg = function(msg)
 	multiserver.do_rpc("<-MT2MT " .. msg, nil)
 end

@@ -31,6 +31,12 @@ minetest.register_on_modchannel_message(function(channel_name, sender, msg)
 		p = msg:split(" ")[3]
 	elseif cmd == "->ISBANNED" then
 		p = multiserver.tobool(msg:split(" ")[3])
+	elseif cmd == "->SRVS" then
+		p = {}
+		local t = minetest.string_to_privs(msg:split(" ")[3] or "")
+		for k in pairs(t) do
+			table.insert(p, k)
+		end
 	elseif cmd == "->JOIN" then
 		local name = msg:split(" ")[3]
 		local srv = msg:split(" ")[4]

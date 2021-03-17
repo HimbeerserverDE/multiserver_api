@@ -86,7 +86,13 @@ Description: Bans a player, can only use name if the player is online
 target: Name or IP address to unban
 Description: Unbans a player
 ```
-> `multiserver.send_msg = function(msg)`
+> `multiserver.get_servers(callback)`
+```
+callback: Callback function (params: srvs)
+Description: Returns an indexed table containing all server names
+to the callback function
+```
+> `multiserver.send_msg(msg)`
 ```
 msg: Message to send
 Description: Sends a message to all other minetest servers
