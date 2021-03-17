@@ -59,8 +59,12 @@ multiserver.get_servers = function(cb)
 	multiserver.do_rpc("<-GETSRVS", cb)
 end
 
-multiserver.send_msg = function(msg)
+multiserver.broadcast_msg = function(msg)
 	multiserver.do_rpc("<-MT2MT " .. msg, nil)
+end
+
+multiserver.send_msg = function(tosrv, msg)
+	multiserver.do_rpc("<-MSG2MT " .. tosrv .. " " .. msg, nil)
 end
 
 multiserver.register_on_joinplayer = function(cb)

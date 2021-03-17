@@ -57,13 +57,14 @@ minetest.register_on_modchannel_message(function(channel_name, sender, msg)
 		end
 	elseif cmd == "->MT2MT" then
 		local smsg = msg:split(" ")
+		local broadcast = multiserver.to_bool(smsg[2])
 		local m = ""
 		for i = 3, #smsg do
 			m = m .. smsg[i]
 			if i < #smsg then m = m .. " " end
 		end
 		for _, f in ipairs(multiserver.on_msg) do
-			f(m)
+			f(m, broadcast)
 		end
 	end
 	if cb[rrq] == nil then return end

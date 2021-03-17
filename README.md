@@ -92,10 +92,16 @@ callback: Callback function (params: srvs)
 Description: Returns an indexed table containing all server names
 to the callback function
 ```
-> `multiserver.send_msg(msg)`
+> `multiserver.broadcast_msg(msg)`
 ```
 msg: Message to send
 Description: Sends a message to all other minetest servers
+```
+> `multiserver.send_msg(tosrv, msg)`
+```
+tosrv: Server to send the message to
+msg: Message to send
+Description: Sends a message to another minetest server
 ```
 > `multiserver.register_on_joinplayer(callback)`
 ```
@@ -116,7 +122,8 @@ indicates whether the redirection was successful
 ```
 > `multiserver.register_on_msg(callback)`
 ```
-callback: Callback function (params: msg)
+callback: Callback function (params: msg, broadcast)
 Description: Registers a callback function for messages sent by other
-minetest servers
+minetest servers, broadcast is true if all servers were sent
+the message
 ```
