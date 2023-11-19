@@ -1,3 +1,11 @@
+# DEPRECATED
+This repository is part of the initial [multiserver](https://github.com/HimbeerserverDE/multiserver) project and should not be used.
+
+There is no successor, however [mt-multiserver-proxy](https://github.com/HimbeerserverDE/mt-multiserver-proxy) supports Go plugins
+that can provide an interface to it to internal servers (e.g. using HTTP APIs).
+Mod channel support between `mt-multiserver-proxy` and the Minetest servers
+or an official implementation to replace this repository may be added in the future (contributions are welcome).
+
 # multiserver API
 A multiserver RPC API for Minetest Servers
 ## multiserver project
